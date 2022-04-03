@@ -1,0 +1,32 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "postcss": {
+    "plugins": {
+      "postcss-import": {},
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
+  "scripts": {
+    //"b:install": "npm i -D sass postcss-import postcss-cli autoprefixer tailwindcss",
+    //"build:scss": "sass --watch ./components/comp.style.scss ./outputCss/style.css",
+    //"build:css": "postcss ./tailwind.css -o ./dev/style.css --watch"
+  },
+  "keywords": [],
+  "author": "eyanat",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "full-palette": "^1.1.0",
+    "install": "^0.13.0",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.2",
+    "sass": "^1.35.1"
+  },
+  "dependencies": {
+    "tailwindcss": "^2.2.4"
+  }
+}

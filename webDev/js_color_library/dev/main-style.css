@@ -1,0 +1,19 @@
+@keyframes left-pop {
+  from {
+    transform: translate(-1000px);
+  }
+}
+.animation-left-pop {
+  animation: left-pop 900ms ease-in-out forwards;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: #e5e7eb;
+  background: #333;
+  color: crimson;
+}
+
+/*# sourceMappingURL=main-style.css.map */

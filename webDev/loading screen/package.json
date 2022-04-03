@@ -1,0 +1,14 @@
+{
+  "name": "loading-screen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "run": "sass --watch ./scss/style.scss ./dev/main-style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.37.5"
+  }
+}

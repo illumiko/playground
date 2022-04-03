@@ -1,0 +1,9 @@
+@use './components' as *;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  @include c-gray-200(background);
+  background: #333;
+  color: crimson;
+}

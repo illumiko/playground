@@ -1,0 +1,48 @@
+body {
+  font-family: sans-serif;
+  background: #333;
+  color: white;
+  margin: 0 10vw;
+}
+
+.itemContainer {
+  background: #111;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  height: fit-content;
+  padding: 2rem 0;
+  border-radius: 1rem;
+}
+form {
+}
+form input {
+  display: block;
+  padding: 0.5rem;
+  outline: none;
+  border-radius: 0.5rem;
+  border: none;
+}
+#hello {
+  margin: 1rem 0;
+}
+button {
+  border: none;
+  outline: none;
+  margin: 1rem 0 0 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.users {
+  color: #fca111;
+  background: #111;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.userInfo {
+  margin: 1rem 0;
+}

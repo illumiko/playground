@@ -1,0 +1,55 @@
+@keyframes left-pop {
+  from {
+    transform: translate(-1000px);
+  }
+}
+.animation-left-pop {
+  animation: left-pop 900ms ease-in-out forwards;
+}
+
+body {
+  background: #333;
+}
+
+@keyframes bobo {
+  to {
+    transform: rotate(2turn);
+  }
+}
+.container {
+  display: grid;
+  place-items: center;
+  margin-top: 10rem;
+  position: relative;
+  animation: bobo 3s infinite;
+}
+
+.circle {
+  height: 200px;
+  width: 200px;
+  background-color: gray;
+  border-radius: 50%;
+  position: relative;
+}
+
+.squareContainer {
+  position: absolute;
+}
+.squareContainer .squares {
+  height: 150px;
+  width: 150px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #333;
+}
+.squareContainer .squares::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  top: 2px;
+  background-color: lime;
+}
+
+/*# sourceMappingURL=main-style.css.map */
