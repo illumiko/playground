@@ -1,3 +1,4 @@
+/* index db{{{
 // Create needed constants
 const list = document.querySelector('ul');
 const titleInput = document.querySelector('#title');
@@ -79,4 +80,32 @@ openRequest.addEventListener("upgradeneeded", e => {
     console.log("||database setup complete||")
 
 })
-
+//}}} */
+const ifExist = (storeName) => {
+    if(!openReq.result.objectStoreNames.contains(storeName)) {
+        openReq.result.createObjectStore(storeName, {keyPath: "id", autoIncrement:true})
+    }
+}
+//init db
+let db
+const openReq = indexedDB.open("audio", 1)
+openReq.onerror = (err) => console.warn(err)
+openReq.onsuccess = (ev) => {
+    console.log('~~audio DB inited~~')
+}
+openReq.onupgradeneeded = (ev) => {
+    ifExist("audio")
+}
+const file = document.querySelector("#file")
+file.addEventListener("change", (ev) => {
+    const This = ev.target
+    const reader = new FileReader()
+    console.log(This.files[0])
+    reader.readAsDataURL(This.files[0])
+    reader.onload = () => {
+        console.log(reader.result)
+        document.querySelector("#aud").setAttribute("src",reader.result.toString())
+        let tx = openReq.result.transaction("audio", "readwrite").objectStore("audio")
+        tx.add(reader.result.toString()).onsuccess = () => console.log(yay)
+    }
+})
