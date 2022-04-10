@@ -13,6 +13,9 @@ label{
     letter-spacing: 0.1em;
     
 }
+#header {
+    @apply text-4xl relative z-20 text-red-400 pb-8;
+}
 #tasks{
     @apply ml-4 text-xl pt-4 mb-0;
 }
@@ -20,10 +23,15 @@ label{
     @apply hover:bg-slate-700 transition-colors cursor-pointer select-none z-20 text-red-400 absolute right-0 top-0 text-xl bg-slate-900 p-2 px-4 border-slate-700;
 }
 #tasksContainer{
-    @apply md:ml-8 bg-slate-700 p-4 py-12 my-8 relative grid items-center rounded;
+    grid-template-columns: 1fr 7fr;
+    @apply  bg-slate-700 p-4 py-8 my-12 relative w-10/12 rounded
+    grid items-center;
+}
+#taskDate {
+    font-size: 1.5em;
 }
 #tasksHead{
-    @apply text-3xl ml-4 text-slate-50 font-bold
+    @apply text-3xl ml-4 text-slate-50 text-xl font-bold
 }
 .complete {
     @apply after:content-['complete'] after:grid after:w-full after:h-full after:place-items-center after:text-white 
@@ -33,6 +41,21 @@ label{
 #Bgimg {
     background: url("./assets/2.png");
     background-size: cover;
+}
+::-webkit-scrollbar {
+    width: 0.2em;
+    height: 0.2em;
+    @apply z-50;
+}
+::-webkit-scrollbar-track {
+    @apply opacity-0 z-50
+}
+/* ::-webkit-scrollbar-button {
+    background: blue
+} */
+::-webkit-scrollbar-thumb {
+    background: white;
+    @apply bg-red-500 z-50
 }
 button {
     z-index: 20;
