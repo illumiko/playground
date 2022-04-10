@@ -1,7 +1,10 @@
 const taskContainer = document.querySelector('#theTaskContainer') 
 const inputTitle = document.querySelector("#titleInput")
 const inputTask = document.querySelector("#taskInput")
-const addTask = document.querySelector(("#submit"))
+const addTask = document.querySelector("#submit")
+const formModalShow = document.querySelector("#modalShow")
+const formModal = document.querySelector("#Taskform")
+const formModalClose = document.querySelector("#modalClose")
 //helper func
 const ifExist = (storeName) => {
     if(!openReq.result.objectStoreNames.contains(storeName)) {
@@ -77,6 +80,20 @@ const addItems = ev => {
 }
 
 addTask.addEventListener('click', addItems)
+//modal Toggle
+formModalClose.addEventListener("click", (ev) => {
+    ev.preventDefault()
+    formModal.classList.remove("absolute")
+    formModal.classList.add("hidden")
+    /* formModal.addEventListener("transitionend", ev => {
+        ev.target.classList.add("hidden") */
+})
+formModalShow.addEventListener("click", (ev) => {
+    ev.preventDefault()
+    // formModal.classList.add("opacity-100")
+    formModal.classList.add("absolute")
+    formModal.classList.remove("hidden")
+})
 
 
 

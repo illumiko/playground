@@ -83,7 +83,7 @@ openRequest.addEventListener("upgradeneeded", e => {
 //}}} */
 const ifExist = (storeName) => {
     if(!openReq.result.objectStoreNames.contains(storeName)) {
-        openReq.result.createObjectStore(storeName, {keyPath: "id", autoIncrement:true})
+        openReq.result.createObjectStore(storeName, {autoIncrement:true})
     }
 }
 //init db
@@ -99,13 +99,19 @@ openReq.onupgradeneeded = (ev) => {
 const file = document.querySelector("#file")
 file.addEventListener("change", (ev) => {
     const This = ev.target
-    const reader = new FileReader()
     console.log(This.files[0])
-    reader.readAsDataURL(This.files[0])
-    reader.onload = () => {
-        console.log(reader.result)
-        document.querySelector("#aud").setAttribute("src",reader.result.toString())
-        let tx = openReq.result.transaction("audio", "readwrite").objectStore("audio")
-        tx.add(reader.result.toString()).onsuccess = () => console.log(yay)
+    let tx = openReq.result.transaction("audio", "readwrite").objectStore("audio")
+    tx.add(This.files[0]).onsuccess = () => console.log('yay')
+})
+document.getElementById("load").addEventListener('click', ev => {
+    let tx = openReq.result.transaction("audio", "readwrite").objectStore("audio")
+    tx.getAll().onsuccess = ev => {
+        console.log(ev.target.result[0])
+        document.querySelector("body").innerHTML += `
+            <audio  controls>
+                <source id="aud" src="${URL.createObjectURL(ev.target.result[0])}" type="">
+            </audio>
+        `
     }
 })
+

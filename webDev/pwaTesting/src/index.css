@@ -15,17 +15,25 @@ label{
 }
 #tasks{
     @apply ml-4 text-xl pt-4 mb-0;
-
 }
 #taskDelete{
-    @apply hover:bg-slate-700 transition-colors cursor-pointer select-none text-red-400 absolute right-0 top-0 text-xl bg-slate-900 p-2 px-4 border-slate-700;
+    @apply hover:bg-slate-700 transition-colors cursor-pointer select-none z-20 text-red-400 absolute right-0 top-0 text-xl bg-slate-900 p-2 px-4 border-slate-700;
 }
 #tasksContainer{
-    @apply ml-4 md:ml-8 bg-slate-700 p-4 py-12 my-8 relative grid items-center rounded;
+    @apply md:ml-8 bg-slate-700 p-4 py-12 my-8 relative grid items-center rounded;
 }
 #tasksHead{
     @apply text-3xl ml-4 text-slate-50 font-bold
 }
 .complete {
-    @apply after:content-['complete'] after:grid after:w-full after:h-full after:place-items-center after:text-white after:absolute before:absolute relative before:text-white before:bg-slate-900 before:top-0 before:right-0 before:w-full before:h-full before:opacity-60 before:z-10 after:z-20
+    @apply after:content-['complete'] after:grid after:w-full after:h-full after:place-items-center after:text-white 
+    after:absolute before:absolute relative before:text-white before:bg-slate-900 before:top-0 before:right-0 before:w-full 
+    before:h-full before:opacity-60 before:z-10 after:z-20;
+}
+#Bgimg {
+    background: url("./assets/2.png");
+    background-size: cover;
+}
+button {
+    z-index: 20;
 }
