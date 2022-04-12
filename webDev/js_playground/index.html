@@ -4,10 +4,27 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>IndexedDB demo</title>
-        <link href="index.css" rel="stylesheet">
+        <link href="./app.css" rel="stylesheet">
         <script src="app.js" defer></script>
     </head>
-    <body>
+    <body style="background:#1e1e1e;color:#eee">
+        <main class="pushNotification m-4">
+            <form class="">
+                <div class="mb-4">
+                    <label class="mb-2" for="title">Enter Title:</label>
+                    <input type="text" style="color:#eee;background:transparent;border-color:#aaa" class="form-control" id="title">
+                </div>
+                <div class="mb-4">
+                    <label for="content" class="mb-2">Enter Content:</label>
+                    <textarea id="content" style="color:#eee;background:transparent;border-color:#aaa" class="form-control" rows="" cols=""></textarea>
+                </div>
+                <button id="submit" class="btn btn-primary mb-4">Add</button>
+            </form>
+
+            <button id="enableNotification" class="btn btn-secondary mt-4">Enable notification</button>
+            <button id="sendNotificaion" class="btn btn-info mt-4">Send notification</button>
+
+        </main>
     <!--indexDb <header>{{{
       <h1>IndexedDB notes demo</h1>
     </header>
@@ -40,13 +57,13 @@
     <footer>
       <p>Copyright nobody. Use the code as you like.</p>
     </footer>}}} -->
-        <main>
+        <!-- <main id="StoreFiles using IDB">{{{
             <input type="file" name="" id="file">
             <audio  controls>
                 <source id="aud" src="" type="">
             </audio>
             <button id="load">Load audio</button>
 
-        </main>
+        </main> --><!--}}}-->
     </body>
 </html>

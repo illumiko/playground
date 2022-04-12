@@ -81,6 +81,7 @@ openRequest.addEventListener("upgradeneeded", e => {
 
 })
 //}}} */
+/* //storing files in indexedDB{{{
 const ifExist = (storeName) => {
     if(!openReq.result.objectStoreNames.contains(storeName)) {
         openReq.result.createObjectStore(storeName, {autoIncrement:true})
@@ -114,4 +115,49 @@ document.getElementById("load").addEventListener('click', ev => {
         `
     }
 })
+//}}} */
+const enableNoti = document.getElementById("enableNotification")
+const sendNoti = document.getElementById("sendNotificaion")
+const title = document.getElementById("title")
+const content = document.getElementById("content")
+const add = document.getElementById("submit")
+let req //getting notification status globally
+const ifExist = (storeName) => {
+    if(!openReq.result.objectStoreNames.contains(storeName)) {
+        openReq.result.createObjectStore(storeName, {keyPath: "id", autoIncrement:true})
+    }
+}
+//init db
+let db
+const openReq = indexedDB.open("todo", 1)
+openReq.onerror = (err) => console.warn(err)
+openReq.onsuccess = (ev) => {
+    console.log('~~todo DB inited~~')
+}
+openReq.onupgradeneeded = (ev) => {
+    ifExist("todo")
+}
 
+
+
+add.addEventListener("click", ev => {
+    ev.preventDefault()
+    const task = {
+        title: title.value,
+        content: content.value
+    }
+    let tx = openReq.result.transaction("todo", "readwrite").objectStore("todo")
+    tx.add(task)
+    console.log(task)
+})
+enableNoti.addEventListener("click",async ev => {
+    req = await Notification.requestPermission()
+})
+sendNoti.addEventListener("click", ev => {
+    console.log(req)
+    const noti = new Notification("test",{tag:"ttttttttt"})
+    noti.onshow = () => {
+        console.log('noti SHOED')
+
+    }
+})
