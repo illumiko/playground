@@ -177,6 +177,12 @@ const checkBg = () => {
     }
    
 }
+/* const t = () => {
+    indexedDB.open("todo",2).onsuccess = ev => {
+        console.log(ev.target.result)
+    }
+}
+t() */
 
 
 

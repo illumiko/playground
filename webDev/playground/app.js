@@ -1,4 +1,4 @@
-/* index db{{{
+/* //index db{{{
 // Create needed constants
 const list = document.querySelector('ul');
 const titleInput = document.querySelector('#title');
@@ -116,48 +116,108 @@ document.getElementById("load").addEventListener('click', ev => {
     }
 })
 //}}} */
-const enableNoti = document.getElementById("enableNotification")
-const sendNoti = document.getElementById("sendNotificaion")
-const title = document.getElementById("title")
-const content = document.getElementById("content")
-const add = document.getElementById("submit")
-let req //getting notification status globally
-const ifExist = (storeName) => {
-    if(!openReq.result.objectStoreNames.contains(storeName)) {
-        openReq.result.createObjectStore(storeName, {keyPath: "id", autoIncrement:true})
+// //{{{push notification test
+// const enableNoti = document.getElementById("enableNotification")
+// const sendNoti = document.getElementById("sendNotificaion")
+// const title = document.getElementById("title")
+// const content = document.getElementById("content")
+// const add = document.getElementById("submit")
+// const time = document.getElementById("time")
+// let req //getting notification status globally
+// const ifExist = (storeName) => {
+//     if(!openReq.result.objectStoreNames.contains(storeName)) {
+//         openReq.result.createObjectStore(storeName, {keyPath: "id", autoIncrement:true})
+//     }
+// }
+// //init db
+// let db
+// const openReq = indexedDB.open("todo", 1)
+// openReq.onerror = (err) => console.warn(err)
+// openReq.onsuccess = (ev) => {
+//     console.log('~~todo DB inited~~')
+// }
+// openReq.onupgradeneeded = (ev) => {
+//     ifExist("todo")
+// }
+//
+//
+//
+// add.addEventListener("click", ev => {
+//     ev.preventDefault()
+//     const task = {
+//         title: title.value,
+//         content: content.value
+//     }
+//     let tx = openReq.result.transaction("todo", "readwrite").objectStore("todo")
+//     tx.add(task)
+//     console.log(task)
+// })
+// enableNoti.addEventListener("click",async ev => {
+//     req = await Notification.requestPermission()
+// })
+// sendNoti.addEventListener("click", ev => {
+//     console.log(req)
+//     const noti = new Notification("test",{tag:"ttttttttt"})
+//     noti.onshow = () => {
+//         console.log('noti SHOED')
+//
+//     }
+// })
+// time.addEventListener("change", ev => {
+//     console.log(ev)
+// })//}}}
+/* //Map{{{
+const greetings = () => {
+    return "hihe"
+}
+const map = new Map()
+const nestedMap = new Map([['farewell','bye']])
+const copyMap = new Map([...nestedMap,["new","X_X"]])
+map.set("greet",greetings())
+map.set("nested",nestedMap)
+//overwrite values
+map.set("greet","hello d(n)ude")
+console.log(new Map([...copyMap,["new", "new X_X"]]))
+const [[key, value]] = map.get("nested")
+// console.log(key, "=>", value)
+//}}} */
+class hagu {
+    constructor(){ }
+    #time = new Date().getTime()
+    static day = new Date().getDay()
+    date = new Date().getDate()
+    year = new Date().getFullYear()
+    yearUtc = new Date().getUTCFullYear()
+
+    getTime() {
+        return this.#time
     }
 }
-//init db
-let db
-const openReq = indexedDB.open("todo", 1)
-openReq.onerror = (err) => console.warn(err)
-openReq.onsuccess = (ev) => {
-    console.log('~~todo DB inited~~')
-}
-openReq.onupgradeneeded = (ev) => {
-    ifExist("todo")
-}
+
+const poop = new hagu()
+console.log(poop.day)
 
 
 
-add.addEventListener("click", ev => {
-    ev.preventDefault()
-    const task = {
-        title: title.value,
-        content: content.value
-    }
-    let tx = openReq.result.transaction("todo", "readwrite").objectStore("todo")
-    tx.add(task)
-    console.log(task)
-})
-enableNoti.addEventListener("click",async ev => {
-    req = await Notification.requestPermission()
-})
-sendNoti.addEventListener("click", ev => {
-    console.log(req)
-    const noti = new Notification("test",{tag:"ttttttttt"})
-    noti.onshow = () => {
-        console.log('noti SHOED')
 
-    }
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
