@@ -1,4 +1,4 @@
-/* //index db{{{
+//index db{{{
 // Create needed constants
 const list = document.querySelector('ul');
 const titleInput = document.querySelector('#title');
@@ -80,7 +80,7 @@ openRequest.addEventListener("upgradeneeded", e => {
     console.log("||database setup complete||")
 
 })
-//}}} */
+//}}}
 /* //storing files in indexedDB{{{
 const ifExist = (storeName) => {
     if(!openReq.result.objectStoreNames.contains(storeName)) {
@@ -181,21 +181,25 @@ console.log(new Map([...copyMap,["new", "new X_X"]]))
 const [[key, value]] = map.get("nested")
 // console.log(key, "=>", value)
 //}}} */
-class hagu {
+/* class hagu {//{{{
     constructor(){ }
     #time = new Date().getTime()
     static day = new Date().getDay()
     date = new Date().getDate()
     year = new Date().getFullYear()
     yearUtc = new Date().getUTCFullYear()
+    daysInMonth(month){
+        return [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+    }
 
     getTime() {
-        return this.#time
+        console.log(this)
+        // return this.#time
     }
 }
 
 const poop = new hagu()
-console.log(poop.day)
+console.log(Array.from({length:poop.daysInMonth(1)}, (_,i) => i+1))//}}} */
 
 
 

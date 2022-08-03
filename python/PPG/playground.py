@@ -11,11 +11,41 @@ def test():
      # # the lsit compresion shortens this to [item for item in fridge if item in healthy]
      # print(filteredFridge)
 
+
+
+
+
+
+
+
+
+
+
+
      # print('welcome to month converted')
      # uInput = int(input("Enter number of days: "))
      # # months = uInput / 30 
      # # days = uInput % 30
      # print('Months = %2d Days= %d' % (divmod(uInput, 30)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
      #Evaluation of 1/(x+n)....{x = 1, n =11}
      # sum = 0.0
