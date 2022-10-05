@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"time"
+)
 
 // func main() { // {{{ error handling
 // 	/* i := -16.0
@@ -126,7 +130,7 @@ func main() {
 	reciever(sender, getter)
 	fmt.Println(<-getter)
 }// }}} */
-/* func query_hH(query_num int, res chan<- string) { // getting respones from multiple channel though select{{{
+func query_hH(query_num int, res chan<- string) { // getting respones from multiple channel though select{{{
 	for i := 0; i <= query_num; i++ {
 		time.Sleep(time.Second * 1)
 		res <- "found good quality hentai " + strconv.Itoa(query_num)
@@ -152,7 +156,7 @@ func main() {
 			fmt.Println(msg)
 		}
 	}
-} // }}} */
+} // }}}
 /* func main() {// {{{
 	messages := make(chan string)
 	signal := make(chan bool)
@@ -187,7 +191,7 @@ func main() { // waitgroups
 	fmt.Println("NOW ITS BYE BYE WORLD")
 
 } // }}} */
-func main() { // {{{
+/* func main() { // {{{
 	oni := make(chan int, 3)
 	oni_complete := make(chan bool, 1)
 	go func() {
@@ -208,4 +212,13 @@ func main() { // {{{
 	if <-oni_complete {
 		fmt.Printf("HELLO IM GAYYYYYYYY")
 	}
-} // }}}
+} // }}} */
+// func main() {
+// 	num := 10
+// 	countup(&num)
+// 	fmt.Println(num)
+//
+// }
+// func countup(num *int) {
+// 	*num = *num + 10
+// }
