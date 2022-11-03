@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	"strconv"
-	"time"
+	"math/rand"
 )
 
 // func main() { // {{{ error handling
@@ -130,7 +129,7 @@ func main() {
 	reciever(sender, getter)
 	fmt.Println(<-getter)
 }// }}} */
-func query_hH(query_num int, res chan<- string) { // getting respones from multiple channel though select{{{
+/* func query_hH(query_num int, res chan<- string) { // getting respones from multiple channel though select{{{
 	for i := 0; i <= query_num; i++ {
 		time.Sleep(time.Second * 1)
 		res <- "found good quality hentai " + strconv.Itoa(query_num)
@@ -156,7 +155,7 @@ func main() {
 			fmt.Println(msg)
 		}
 	}
-} // }}}
+} // }}} */
 /* func main() {// {{{
 	messages := make(chan string)
 	signal := make(chan bool)
@@ -213,12 +212,34 @@ func main() { // waitgroups
 		fmt.Printf("HELLO IM GAYYYYYYYY")
 	}
 } // }}} */
-// func main() {
-// 	num := 10
-// 	countup(&num)
-// 	fmt.Println(num)
-//
-// }
-// func countup(num *int) {
-// 	*num = *num + 10
-// }
+func main() {
+	M := make(map[string]int)
+	str := randoStr()
+	int := randoNum()
+	for i := 0; i < 10; i++ {
+		M[str[i]] = int[i]
+	}
+	for index, _ := range M {
+		x, y := M[index]
+		fmt.Println(x, y)
+
+	}
+
+}
+
+func randoNum() (numbers []int) {
+	numbers = make([]int, 10)
+	for i := 0; i < 10; i++ {
+		numbers[i] = rand.Intn(1000)
+	}
+	return
+}
+func randoStr() (str []string) {
+	alphabet := []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v"}
+	str = make([]string, 10)
+	for i := 0; i < 10; i++ {
+		str[i] = alphabet[rand.Intn(len(alphabet))] + alphabet[rand.Intn(len(alphabet))] + alphabet[rand.Intn(len(alphabet))]
+	}
+	return
+
+}
