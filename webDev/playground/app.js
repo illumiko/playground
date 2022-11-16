@@ -1,4 +1,4 @@
-//index db{{{
+/* //index db{{{
 // Create needed constants
 const list = document.querySelector('ul');
 const titleInput = document.querySelector('#title');
@@ -80,7 +80,7 @@ openRequest.addEventListener("upgradeneeded", e => {
     console.log("||database setup complete||")
 
 })
-//}}}
+//}}} */
 /* //storing files in indexedDB{{{
 const ifExist = (storeName) => {
     if(!openReq.result.objectStoreNames.contains(storeName)) {
@@ -200,28 +200,4 @@ const [[key, value]] = map.get("nested")
 
 const poop = new hagu()
 console.log(Array.from({length:poop.daysInMonth(1)}, (_,i) => i+1))//}}} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

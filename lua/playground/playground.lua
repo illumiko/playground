@@ -28,7 +28,7 @@
 -- for i=1,10 do
 --   array[i] = i*2
 -- end
--- luasnip snipp{{{
+--[[ -- luasnip snipp{{{
 result = {}
 result.start_hour = os.date("%I") -- defining start hour
 result.start_min = os.date("%M") -- defining start min
@@ -68,7 +68,7 @@ result.start_time = function ()
   return result.start_hour .. ":" .. result.start_min .. result.status()
 end
 result.adder()
---}}}
+--}}} ]]
 -- -- local input = vim.fn.input("say?: ")
 -- -- print(result.formatted_hour)
 --
@@ -80,15 +80,23 @@ result.adder()
 -- print(vim.fn.stdpath('data'))--}}} ]]
 --layout switcher{{{
 local function checkLayout()
-    local str = os.execute("setxkbmap -query | grep colemak")
-    print(str)
-    if (str == nil) then
-        os.execute("setxkbmap us colemak")
-        os.execute("notify-send 'layout changed to colemak' ")
-    else
-        os.execute("setxkbmap us")
-        -- os.execute("notify-send 'layout changed to us' ")
-    end
+	local str = os.execute("setxkbmap -query | grep colemak")
+	print(str)
+	if str == nil then
+		os.execute("setxkbmap us colemak")
+		os.execute("notify-send 'layout changed to colemak' ")
+	else
+		os.execute("setxkbmap us")
+		-- os.execute("notify-send 'layout changed to us' ")
+	end
 end
 -- checkLayout()--}}}
+--lua patterns
+--[[ -- {{{
+local string = "/Deadline/30-05-1999/"
+local pattern = "%a*[%/]"
+local match = string.find(string, pattern)
+print(string.sub(string, match))
+-- }}} ]]
+-- string literal
 
