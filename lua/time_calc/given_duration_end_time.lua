@@ -6,14 +6,14 @@ time.duration = vim.fn.input("Enter duration(24H:M) ")
 -- time.end_time = os.date("%H:%M")
 time.end_time = vim.fn.input("end_time = ")
 
-helper_functions.into_seconds = function(time)
+helper_functions.into_seconds = function(type,time) -- type: duration || time
 	local hour = tonumber(string.sub(time, 1, 2))
 	local min = tonumber(string.sub(time, 4, 5))
 
-	if hour == 0 then
+	if hour == 0 and type ~= "duration" then
 		return (24 * 60 ^ 2) + (min * 60)
 	end
-	return (hour * 60 ^ 2) + (min * 60)
+	return ((hour * 60 ^ 2) + (min * 60))
 end
 
 helper_functions.into_time = function(time)
@@ -50,10 +50,11 @@ end
 
 -- end_time got, duraiton got, now calc start time
 M.main = function(duration, end_time)
-	local end_time_seconds = helper_functions.into_seconds(end_time)
-	local duraiton_seconds = helper_functions.into_seconds(duration)
+    local duraiton_seconds = helper_functions.into_seconds("duration",duration)
+	local end_time_seconds = helper_functions.into_seconds("",end_time)
 	local start_time = helper_functions.tbl_to_string(helper_functions.into_time(end_time_seconds - duraiton_seconds))
 	return helper_functions.format(start_time, end_time, duration)
 end
-
-return(M.main(time.duration, time.end_time))
+vim.pretty_print(M.main(time.duration, time.end_time))
+-- print(time.duration)
+-- return(M.main(time.duration, time.end_time))
